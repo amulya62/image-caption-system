@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 /* ── helpers ─────────────────────────────────────────────────────────────── */
 const STYLES   = ["Descriptive", "Creative", "Concise", "SEO Friendly"];
 const LANGS    = ["English", "Spanish", "French", "German", "Hindi"];
-const API_URL  = "/api/caption";
+const API_URL  = "/_/backend/api/caption";
 
 function saveToHistory(entry) {
   try {
@@ -74,7 +74,7 @@ const Dashboard = () => {
 
   /* ── Check backend health on mount ───────────────────────────────────────── */
   React.useEffect(() => {
-    fetch("/api/health")
+    fetch("/_/backend/api/health")
       .then((r) => r.ok ? setApiStatus("online") : setApiStatus("offline"))
       .catch(() => setApiStatus("offline"));
   }, []);
